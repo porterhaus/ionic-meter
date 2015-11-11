@@ -22,13 +22,42 @@
   });
 
   app.config(function($stateProvider, $urlRouterProvider){
-
-    $urlRouterProvider.otherwise('/');
+    $stateProvider
+      .state('meter', {
+        url: '/meter',
+        templateUrl: 'templates/meter.html',
+        controller: 'MeterController',
+        data: {
+          authenticate: true
+        }
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController'
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'templates/signup.html',
+        controller: 'SignupController'
+      })
+      .state('forgot', {
+        url: '/forgot',
+        templateUrl: 'templates/forgot.html',
+        controller: 'ForgotController'
+      })
+      ;
+    $urlRouterProvider.otherwise('/meter');
   });
 
-  app.run(function($rootScope){
-    $rootScope.$on('$stateChangeStart', function(next, fromParams, toParams, fromState, toState) {
-
+  app.run(function($rootScope, $state){
+    $rootScope.$on('$stateChangeStart', function(event, next, fromParams, toParams, fromState, toState) {
+      console.log('stateChangeStart');
+      if ('data' in next) {
+        console.log('redirect to login');
+        event.preventDefault();
+        $state.go('login');
+      }
     });
   });
 
