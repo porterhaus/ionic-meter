@@ -19,7 +19,26 @@
       'jHNUhXWZwoMwCqPH1aUpqau4oTbnwSuuIsesh5Ty'
     );
 
-    
+    $rootScope.show = function(text) {
+      $rootScope.loading = $ionicLoading.show({
+        template: text ? text : 'Loading...',
+        animation: 'fade-in',
+        showBackdrop: true,
+        maxWidth: 200,
+        showDelay: 0
+      });
+    };
+
+    $rootScope.hide = function() {
+      $ionicLoading.hide();
+    };
+
+    $rootScope.notify = function(text) {
+      $rootScope.show(text);
+      $window.setTimeout(function() {
+        $rootScope.hide();
+      }, 1999);
+    };
 
   });
 

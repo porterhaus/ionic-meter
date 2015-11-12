@@ -3,7 +3,7 @@
 
   app.service('UserService', function(){
 
-    var currentUser = Parse.User.current() ? Parse.User.current() : null;
+    var currentUser = Parse.User.current();
 
     return {
       currentUser:  currentUser

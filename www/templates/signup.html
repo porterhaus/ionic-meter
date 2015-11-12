@@ -1,5 +1,5 @@
 <ion-view view-title="Signup">
-  <ion-content>
+  <ion-content class="padding">
       <div class="list">
         <label class="item item-input">
             <input type="text" ng-model="user.username" placeholder="Username">
@@ -15,7 +15,10 @@
       <button class="button button-block button-positive" ng-click="signup()">
           Create Your Account
       </button>
-      By creating an account you agree to the Terms of Use and Privacy Policy.
+      <small style="display:block;text-align:center;">By creating an account you agree to the Terms of Use and Privacy Policy.</small>
+      <button class="button button-block button-positive button-clear" ng-click="login()">
+          Have an Account? Log in.
+      </button>
     </div>
   </ion-content>
 </ion-view>
