@@ -2,7 +2,7 @@
 
   var app = angular.module('ionicMeterApp', ['ionic']);
 
-  app.run(function($ionicPlatform) {
+  app.run(function($ionicPlatform, $ionicLoading, $rootScope) {
 
     $ionicPlatform.ready(function() {
       if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -18,6 +18,8 @@
       '2xSAk2c6Jzj9TzJcNcUKE42p7cKx6tNjiOKtLLrp',
       'jHNUhXWZwoMwCqPH1aUpqau4oTbnwSuuIsesh5Ty'
     );
+
+    
 
   });
 
@@ -50,10 +52,14 @@
     $urlRouterProvider.otherwise('/meter');
   });
 
-  app.run(function($rootScope, $state){
+  app.run(function($rootScope, $state, UserService){
     $rootScope.$on('$stateChangeStart', function(event, next, fromParams, toParams, fromState, toState) {
+      // Debug logging
       console.log('stateChangeStart');
-      if ('data' in next) {
+      console.log(UserService.currentUser);
+
+      // Check state for 'next' and inspect for 'data'
+      if ('data' in next && !UserService.currentUser) {
         console.log('redirect to login');
         event.preventDefault();
         $state.go('login');
