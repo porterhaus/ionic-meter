@@ -1,8 +1,8 @@
-<ion-view view-title="Meter">
-  <ion-content class="padding">
-    Meter
-    <button class="button button-block button-assertive" ng-click="logout()">
-        Log out
-    </button>
+<ion-view view-title="Meter" hide-nav-bar="true">
+  <ion-content>
+    <knob knob-data="data" knob-options="options"></knob>
   </ion-content>
 </ion-view>
+<div class="bar bar-footer">
+  <button class="button button-clear button-assertive pull-right" ng-click="logout()">Logout</button>
+</div>

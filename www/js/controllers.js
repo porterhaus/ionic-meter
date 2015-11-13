@@ -10,6 +10,22 @@
   app.controller('MeterController', function($scope, $rootScope, $state, UserService) {
     console.log('Meter Controller');
 
+    $scope.data = 154;
+    $scope.options = {
+        width: 320,
+        height: 320,
+        thickness: 0.2,
+        skin: 'tron',
+        displayPrevious: true,
+        min: 50,
+        max: 350,
+        //font: "Sansus Webissimo",
+        font: "Source Sans Pro",
+        fontWeight: 300,
+        fgColor: "#f45844",
+        cursor: false
+    };
+
     $scope.logout = function() {
       Parse.User.logOut();
       UserService.currentUser = null;

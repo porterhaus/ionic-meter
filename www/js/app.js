@@ -2,7 +2,7 @@
 
   var app = angular.module('ionicMeterApp', ['ionic']);
 
-  app.run(function($ionicPlatform, $ionicLoading, $rootScope) {
+  app.run(function($ionicPlatform, $ionicLoading, $rootScope, $window) {
 
     $ionicPlatform.ready(function() {
       if(window.cordova && window.cordova.plugins.Keyboard) {
