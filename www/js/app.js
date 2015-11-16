@@ -15,8 +15,8 @@
 
     // Initialize Parse API with app keys.
     Parse.initialize(
-      '2xSAk2c6Jzj9TzJcNcUKE42p7cKx6tNjiOKtLLrp',
-      'jHNUhXWZwoMwCqPH1aUpqau4oTbnwSuuIsesh5Ty'
+      'key',
+      'key'
     );
 
     $rootScope.show = function(text) {
