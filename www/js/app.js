@@ -37,6 +37,7 @@
       $rootScope.show(text);
       $window.setTimeout(function() {
         $rootScope.hide();
+        window.location.reload(true);
       }, 1999);
     };
 

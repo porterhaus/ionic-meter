@@ -48,10 +48,11 @@
                           bgtest.set("createdBy", Parse.User.current());
                           bgtest.save(null,{
                             success: function() {
-                              window.location.reload(true);
+                              $rootScope.notify("Save success!");
                             },
                             error: function(err) {
-
+                              $rootScope.notify("Save failed! Try again.");
+                              console.log("BgTest save error: " + err);
                             }
                           });
 
